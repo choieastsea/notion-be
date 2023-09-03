@@ -17,6 +17,7 @@ class PageTree(models.Model):
         Page, related_name='ancestor_set', on_delete=models.CASCADE)
     descendant = models.ForeignKey(
         Page, related_name='descendant_set', on_delete=models.CASCADE)
+    depth = models.PositiveIntegerField(default=0)
 
     class Meta:
         db_table = 'page_trees'

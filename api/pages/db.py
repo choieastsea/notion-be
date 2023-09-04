@@ -39,6 +39,7 @@ def createPage(page, parent_id):
             """, [current_id, parent_id, current_id, current_id])
 
 
+
 def getDetailPage(page_id):
     """
     page_id : int, title: str, content : str, sub_page: page[], breadcrumbs: str
@@ -59,7 +60,7 @@ def getDetailPage(page_id):
             WHERE page_id IN 
                 (SELECT ancestor_id
                 FROM page_trees t
-                WHERE descendant_id=%s and depth in (0, 1,2)
+                WHERE descendant_id=%s
                 ORDER BY depth ASC)
             ;
             """, [page_id])

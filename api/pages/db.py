@@ -23,7 +23,7 @@ def createPage(page, parent_id):
     with connection.cursor() as cursor:
         # 1. page 추가
         cursor.execute("INSERT INTO pages (title, content) VALUES (%s,%s);",
-                       [page['title'], page['content']])
+                       [page.title, page.content])
         current_id = cursor.lastrowid
         if parent_id == -1:
             parent_id = current_id
